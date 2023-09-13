@@ -14,6 +14,10 @@ export default function Signup() {
                 const resp = await supabase.auth.signUp({
                     email: email, 
                     password: password,
+                    options: {
+                        emailRedirectTo: 'https://glimpse-beta.vercel.app/login'
+                    }
+                
                 });
                 if (resp.error) throw resp.error;
                 const userId = resp.data.user?.id;

@@ -41,7 +41,7 @@ export default function Login() {
         }
     }
     return (
-        <div className="flex flex-col  w-full justify-center items-center mt-8">
+        <div className="flex flex-col  w-full justify-center items-center mt-20">
             <div className="w-full max-w-xs">
                 <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div className="mb-4">
@@ -75,9 +75,6 @@ export default function Login() {
                     </button>
                     </div>
                 </form>
-                <p className="text-center text-gray-500 text-xs">
-                    &copy;2020 Acme Corp. All rights reserved.
-                </p>
             </div>
         </div>
     );
