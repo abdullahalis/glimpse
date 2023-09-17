@@ -147,7 +147,7 @@ export default function Home() {
       alt = "profile-picture"
       height = {150} 
       width = {150} 
-      className='rounded-full'
+      className='rounded-full w-150 h-150'
       />}
       <h1 className = 'mt-2 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-xl lg:text-3xl dark:text-white'>@{creatorSlug}</h1>
       <div className='mt-16'>
@@ -169,10 +169,12 @@ export default function Home() {
       
       {isAuthenticated && (
         <>
-          <div>
-            <h1>Add Links</h1>
-            <div className="mt-4">
-              <div className='block text-sm font-medium text-white-700'>Title</div>
+          <div className='flex flex-col w-full items-center justify-between mt-20'>
+            <h1 className='text-md font-bold leading-none tracking-tight text-gray-900 md:text-xl  dark:text-white'>
+              Add Links
+            </h1>
+            <div className="">
+              <div className='block text-sm font-medium text-white-700 dark:text-white'>Title</div>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 id="title" 
                 name = "title"
@@ -183,25 +185,27 @@ export default function Home() {
             </div>
 
             <div className="mt-4">
-            <div className='block text-sm font-medium text-white-700'>URL</div>
+              <div className='block text-sm font-medium text-white-700 dark:text-white'>URL</div>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                 id="url" 
                 name = "url"
                 type="text" 
                 placeholder="www.link.com"
                 onChange={(e) => setUrl(e.target.value)}
-                />
+              />
             </div>
             <button 
-                className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                className="hover:bg-[#006363] bg-[#008080]/100 font-bold text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4" 
                 type="button"
                 onClick = {addNewLink}
                 >
                 Add Link
             </button>
           </div>
-          <div>
-            <h1>Upload Profile Picture</h1>
+          <div className='flex flex-col w-full items-center justify-between mt-8'>
+            <h1 className='text-md font-bold leading-none tracking-tight text-gray-900 md:text-xl  dark:text-white mb-2'>
+              Change Profile Picture
+            </h1>
     
             {images && images.length > 0 ? (
               <Image
@@ -212,7 +216,7 @@ export default function Home() {
               />
             ) : (
               // You can display a placeholder or a message here when no image is available.
-              <p>No profile picture uploaded yet.</p>
+              <p></p>
             )}
             <ImageUploading
               multiple
@@ -231,7 +235,7 @@ export default function Home() {
                 dragProps,
               }) => (
                 // write your building UI
-                <div className="upload__image-wrapper">
+                <div className="upload__image-wrapper bg-transparent hover:bg-blue-700 text-white font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
                   <button
                     style={isDragging ? { color: 'red' } : undefined}
                     onClick={onImageUpload}
@@ -240,7 +244,7 @@ export default function Home() {
                     Click or Drop here
                   </button>
                   &nbsp;
-                  <button onClick={onImageRemoveAll}>Remove all images</button>
+                  {/* <button onClick={onImageRemoveAll}>Remove all images</button> */}
                   {imageList.map((image, index) => (
                     <div key={index} className="image-item">
                       {/* <img src={image['data_url']} alt="" width="100" /> */}
@@ -254,7 +258,7 @@ export default function Home() {
               )}
             </ImageUploading>
             <button 
-              className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+              className="hover:bg-[#006363] bg-[#008080]/100 font-bold text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mt-4" 
               type="button"
               onClick = {() => uploadProfilePicture()}
               >

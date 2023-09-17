@@ -1,5 +1,7 @@
 import { useState } from "react";
 import supabase from "@/utils/supabaseClient";
+import glimpse_white from '../glimpse_white.svg'
+import Image from 'next/image'
 
 export default function Signup() {
     const [email, setEmail] = useState<string | undefined>();
@@ -47,7 +49,8 @@ export default function Signup() {
         }
     }
     return (
-        <div className="flex flex-col  w-full justify-center items-center mt-20">
+        <div className="flex flex-col  w-full justify-center items-center">
+            <Image className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center mt-16" alt="loho" src={glimpse_white} />
             <div className="w-full max-w-xs">
                 <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div className="mb-4">
@@ -83,8 +86,8 @@ export default function Signup() {
                         onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <div className="flex items-center justify-between">
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                    <div className="flex items-center justify-between flex-col">
+                    <button className="hover:bg-[#006363] bg-[#008080]/100 font-bold text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline w-24" 
                         type="button"
                         onClick={signUpWithEmail}
                         >
